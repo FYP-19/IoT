@@ -36,10 +36,17 @@ lora.set_spreading_factor(spreading_factor = 12)
 
 try:
     while True:
-        for value in range(10):
-            print("Send: ", value)
-            lora.send_packet([value])
-            sleep(5)
+
+        x = input("Enter the cage id to send: ")
+        y = input("Enter the animal category id to send: ")
+        data = [int(x),int(y)]
+        lora.send_packet(data)
+        print("Sent\n")
+
+        # for value in range(10):
+        #     print("Send: ", value)
+        #     lora.send_packet([value])
+        #     sleep(5)
 except KeyboardInterrupt:
     print("Keyboard Interrupt")
 
